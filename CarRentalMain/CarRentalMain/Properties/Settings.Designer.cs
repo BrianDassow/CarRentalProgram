@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace CarRentalMain.Properties
+namespace CarRentalProject.Properties
 {
 
 
