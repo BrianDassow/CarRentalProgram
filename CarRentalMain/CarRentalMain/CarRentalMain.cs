@@ -69,9 +69,6 @@ namespace CarRentalProgram
         private void addButton_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Your user power: " + userPowerString[userPower]);
-            //mainRichText.Text += addTextBox.Text + "\n";
-            addTextBox.Text = "";
-            addTextBox.Focus();// = true;
         }
 
         private void exitButton_Click(object sender, EventArgs e)
