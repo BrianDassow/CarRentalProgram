@@ -17,12 +17,13 @@ namespace CarRentalProgram
     {
 
         string[] userPowerString = {"Guest","Member", "Administrator"};
-        public CarRentalMain(int userPower)
+        public CarRentalMain(User user)
         {
             InitializeComponent();
 
-            this.Text += " - Logged in as: " + userPowerString[userPower];
-            if (userPower > 0)
+            carGridView.AllowUserToAddRows = false;
+            this.Text += " - Logged in as: " + userPowerString[user.power];
+            if (user.power > 0)
             {
                 this.Text += " " + char.ToUpper(user.username[0]) + user.username.Substring(1);
             }
