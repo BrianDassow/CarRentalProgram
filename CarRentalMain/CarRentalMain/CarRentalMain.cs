@@ -65,6 +65,7 @@ namespace CarRentalProgram
         private void addButton_Click(object sender, EventArgs e)
         {
 
+
         }
 
         private void exitButton_Click(object sender, EventArgs e)
