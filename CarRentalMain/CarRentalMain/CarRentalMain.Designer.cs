@@ -1,4 +1,4 @@
-﻿namespace CarRentalProject
+﻿namespace CarRentalProgram
 {
     partial class CarRentalMain
     {
