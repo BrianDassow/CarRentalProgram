@@ -12,23 +12,20 @@ namespace CarRentalProgram
 {
     public partial class CarRentalMain : Form
     {
-        int userPower = -1;
-        string userName = "null";
-        string[] userPowerString = {"Guest","Member", "Administrator"};
-        public CarRentalMain(int userPower)
+        string[] userPowerString = {"Guest", "Member", "Administrator"};
+        public CarRentalMain(User user)
         {
             InitializeComponent();
-            this.userPower = userPower;
-            this.Text += " - Logged in as: " + userPowerString[userPower];
-            if (userPower > 0)
+            this.Text += " - Logged in as: " + userPowerString[user.power];
+            if (user.power > 0)
             {
-                this.Text += " " + userName;
+                this.Text += " " + char.ToUpper(user.username[0]) + user.username.Substring(1);
             }
         }
 
         private void addButton_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Your user power: " + userPowerString[userPower]);
+           // MessageBox.Show("Your user power: " + userPowerString[user]);
             mainRichText.Text += addTextBox.Text + "\n";
             addTextBox.Text = "";
             addTextBox.Focus();// = true;

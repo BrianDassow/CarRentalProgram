@@ -58,6 +58,7 @@
             // 
             this.passwordTextBox.Location = new System.Drawing.Point(76, 61);
             this.passwordTextBox.Name = "passwordTextBox";
+            this.passwordTextBox.PasswordChar = '*';
             this.passwordTextBox.Size = new System.Drawing.Size(95, 20);
             this.passwordTextBox.TabIndex = 3;
             // 

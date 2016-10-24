@@ -19,21 +19,30 @@ namespace CarRentalProgram
 
     public partial class CarRentalLogin : Form
     {
+        List<User> allUsers = new List<User>();
+
         public CarRentalLogin()
         {
             InitializeComponent();
 
+
+
+
+
             FileStream fs = new FileStream("users.xml", FileMode.Open);
             XmlReader reader = XmlReader.Create(fs);
             XDocument doc = XDocument.Load(reader);
+            
+            
+        
 
-            var allUsersFromXML = (from s in doc.Descendants("user") select new {
+        var allUsersFromXML = (from s in doc.Descendants("user") select new {
                                username = s.Element("username").Value,
                                password = s.Element("password").Value,
                                power = int.Parse(s.Element("power").Value)
                            }).ToList();
 
-            List<User> allUsers = new List<User>();
+            
 
             for(int i = 0; i < allUsersFromXML.Count; i++)
             {
@@ -42,14 +51,13 @@ namespace CarRentalProgram
                 user.password = allUsersFromXML[i].password;
                 user.power = allUsersFromXML[i].power;
                 allUsers.Add(user);
-                //MessageBox.Show("LOL: " + allUsers[i].Id);
             }
 
             reader.Close();
+            fs.Close();
             
             for(int i = 0; i < allUsers.Count; i++)
             {
-// MessageBox.Show("LOL");
                 Console.WriteLine("Username: " + allUsers[i].username + " password: " + allUsers[i].password + " power: " + allUsers[i].power);
             }
 
@@ -57,46 +65,45 @@ namespace CarRentalProgram
 
 
         }
-        
+
         private void loginButton_Click(object sender, EventArgs e)
         {
 
 
+            for (int i = 0; i < allUsers.Count; i++)
+            {
+                if (usernameTextBox.Text.Equals(allUsers[i].username) && passwordTextBox.Text.Equals(allUsers[i].password))
+                {
+                    this.Hide();
+                    CarRentalMain frm = new CarRentalMain(allUsers[i]);
+                    frm.ShowDialog();
+                    this.Close();
+                }
+                else if (i == allUsers.Count-1)
+                {
+                    MessageBox.Show("Wrong username and/or password.");
+                }
 
-            // if (usernameTextBox.Text.Equals("admin") && passwordTextBox.Text.Equals("password"))
-            // {
-            this.Hide();
-                CarRentalMain frm = new CarRentalMain(1);
-                frm.ShowDialog();
 
-                //   Application.Run(new CarRentalLogin());
-               // myForm.ShowDialog();
-                this.Close();
-
-          //  }
-         //   else
-         //   {
-         //       MessageBox.Show("Wrong username and/or password.");
-         //   }
+            }
         }
+            
 
         private void registerButton_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            CarRentalMain frm = new CarRentalMain(1);
-            frm.ShowDialog();
+         //   this.Hide();
+            //CarRentalMain frm = new CarRentalMain(1);
+           // frm.ShowDialog();
 
         }
 
         private void guestButton_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            CarRentalMain frm = new CarRentalMain(0);
-            frm.ShowDialog();
+            //this.Hide();
+          //  CarRentalMain frm = new CarRentalMain(0);
+           // frm.ShowDialog();
 
-            //   Application.Run(new CarRentalLogin());
-            // myForm.ShowDialog();
-            this.Close();
+           // this.Close();
         }
     }
 }
