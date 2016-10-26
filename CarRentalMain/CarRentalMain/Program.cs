@@ -118,7 +118,8 @@ namespace CarRentalProgram
                                       make = s.Element("make").Value,
                                       model = s.Element("model").Value,
                                       year = int.Parse(s.Element("year").Value),
-                                      price = s.Element("price").Value
+                                      size = s.Element("size").Value,
+                                      price = int.Parse(s.Element("price").Value)
                                   }).ToList();
 
 
@@ -131,6 +132,7 @@ namespace CarRentalProgram
                 car.make = allCarsFromXML[i].make;
                 car.model = allCarsFromXML[i].model;
                 car.year = allCarsFromXML[i].year;
+                car.size = allCarsFromXML[i].size;
                 car.price = allCarsFromXML[i].price;
                 allCars.Add(car);
             }

@@ -12,6 +12,7 @@ namespace CarRentalProgram
         public string make { get; set; }
         public string model { get; set; }
         public int year { get; set; }
-        public string price { get; set; }
+        public string size { get; set; }
+        public int price { get; set; }
     }
 }

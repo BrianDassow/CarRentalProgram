@@ -38,6 +38,9 @@ namespace CarRentalProgram
             {
                 carBindingSource.Add(allCars[i]);
             }
+
+            carGridView.RowTemplate.Height = 50;
+            //carGridView.;
         }
 
 
