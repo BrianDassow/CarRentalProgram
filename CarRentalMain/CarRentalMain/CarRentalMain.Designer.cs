@@ -32,13 +32,15 @@
             this.addButton = new System.Windows.Forms.Button();
             this.exitButton = new System.Windows.Forms.Button();
             this.carGridView = new System.Windows.Forms.DataGridView();
-            this.profileButton = new System.Windows.Forms.Button();
-            this.size = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.makeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.modelDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.yearDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.size = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.priceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.carBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.profileButton = new System.Windows.Forms.Button();
+            this.makeComboBox = new System.Windows.Forms.ComboBox();
+            this.priceComboBox = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.carGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.carBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -79,31 +81,14 @@
             this.size,
             this.priceDataGridViewTextBoxColumn});
             this.carGridView.DataSource = this.carBindingSource;
-            this.carGridView.Location = new System.Drawing.Point(12, 12);
+            this.carGridView.Location = new System.Drawing.Point(12, 56);
             this.carGridView.MultiSelect = false;
             this.carGridView.Name = "carGridView";
             this.carGridView.ReadOnly = true;
             this.carGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.carGridView.ShowEditingIcon = false;
-            this.carGridView.Size = new System.Drawing.Size(574, 305);
+            this.carGridView.Size = new System.Drawing.Size(574, 261);
             this.carGridView.TabIndex = 4;
-            // 
-            // profileButton
-            // 
-            this.profileButton.Location = new System.Drawing.Point(270, 323);
-            this.profileButton.Name = "profileButton";
-            this.profileButton.Size = new System.Drawing.Size(75, 23);
-            this.profileButton.TabIndex = 5;
-            this.profileButton.Text = "Profile";
-            this.profileButton.UseVisualStyleBackColor = true;
-            this.profileButton.Click += new System.EventHandler(this.profileButton_Click);
-            // 
-            // size
-            // 
-            this.size.DataPropertyName = "size";
-            this.size.HeaderText = "size";
-            this.size.Name = "size";
-            this.size.ReadOnly = true;
             // 
             // makeDataGridViewTextBoxColumn
             // 
@@ -128,6 +113,13 @@
             this.yearDataGridViewTextBoxColumn.Name = "yearDataGridViewTextBoxColumn";
             this.yearDataGridViewTextBoxColumn.ReadOnly = true;
             // 
+            // size
+            // 
+            this.size.DataPropertyName = "size";
+            this.size.HeaderText = "size";
+            this.size.Name = "size";
+            this.size.ReadOnly = true;
+            // 
             // priceDataGridViewTextBoxColumn
             // 
             this.priceDataGridViewTextBoxColumn.DataPropertyName = "price";
@@ -140,11 +132,41 @@
             // 
             this.carBindingSource.DataSource = typeof(CarRentalProgram.Car);
             // 
+            // profileButton
+            // 
+            this.profileButton.Location = new System.Drawing.Point(270, 323);
+            this.profileButton.Name = "profileButton";
+            this.profileButton.Size = new System.Drawing.Size(75, 23);
+            this.profileButton.TabIndex = 5;
+            this.profileButton.Text = "Profile";
+            this.profileButton.UseVisualStyleBackColor = true;
+            this.profileButton.Click += new System.EventHandler(this.profileButton_Click);
+            // 
+            // makeComboBox
+            // 
+            this.makeComboBox.FormattingEnabled = true;
+            this.makeComboBox.Location = new System.Drawing.Point(12, 12);
+            this.makeComboBox.Name = "makeComboBox";
+            this.makeComboBox.Size = new System.Drawing.Size(186, 21);
+            this.makeComboBox.TabIndex = 7;
+            this.makeComboBox.SelectedIndexChanged += new System.EventHandler(this.makeComboBox_SelectedIndexChanged);
+            // 
+            // priceComboBox
+            // 
+            this.priceComboBox.FormattingEnabled = true;
+            this.priceComboBox.Location = new System.Drawing.Point(400, 12);
+            this.priceComboBox.Name = "priceComboBox";
+            this.priceComboBox.Size = new System.Drawing.Size(186, 21);
+            this.priceComboBox.TabIndex = 8;
+            this.priceComboBox.SelectedIndexChanged += new System.EventHandler(this.priceComboBox_SelectedIndexChanged);
+            // 
             // CarRentalMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(598, 351);
+            this.Controls.Add(this.priceComboBox);
+            this.Controls.Add(this.makeComboBox);
             this.Controls.Add(this.profileButton);
             this.Controls.Add(this.carGridView);
             this.Controls.Add(this.addButton);
@@ -170,6 +192,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn yearDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn size;
         private System.Windows.Forms.DataGridViewTextBoxColumn priceDataGridViewTextBoxColumn;
+        private System.Windows.Forms.ComboBox makeComboBox;
+        private System.Windows.Forms.ComboBox priceComboBox;
     }
 }
 
