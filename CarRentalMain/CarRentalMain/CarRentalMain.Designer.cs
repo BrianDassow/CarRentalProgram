@@ -31,14 +31,15 @@
             this.components = new System.ComponentModel.Container();
             this.addButton = new System.Windows.Forms.Button();
             this.exitButton = new System.Windows.Forms.Button();
-            this.carBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.carGridView = new System.Windows.Forms.DataGridView();
-            this.priceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.yearDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.modelDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.makeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.carBindingSource)).BeginInit();
+            this.modelDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.yearDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.priceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.carBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.profileButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.carGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.carBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // addButton
@@ -62,12 +63,9 @@
             this.exitButton.UseVisualStyleBackColor = true;
             this.exitButton.Click += new System.EventHandler(this.exitButton_Click);
             // 
-            // carBindingSource
-            // 
-            this.carBindingSource.DataSource = typeof(CarRentalProgram.Car);
-            // 
             // carGridView
             // 
+            this.carGridView.AllowUserToAddRows = false;
             this.carGridView.AutoGenerateColumns = false;
             this.carGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.carGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -81,17 +79,11 @@
             this.carGridView.Size = new System.Drawing.Size(441, 305);
             this.carGridView.TabIndex = 4;
             // 
-            // priceDataGridViewTextBoxColumn
+            // makeDataGridViewTextBoxColumn
             // 
-            this.priceDataGridViewTextBoxColumn.DataPropertyName = "price";
-            this.priceDataGridViewTextBoxColumn.HeaderText = "price";
-            this.priceDataGridViewTextBoxColumn.Name = "priceDataGridViewTextBoxColumn";
-            // 
-            // yearDataGridViewTextBoxColumn
-            // 
-            this.yearDataGridViewTextBoxColumn.DataPropertyName = "year";
-            this.yearDataGridViewTextBoxColumn.HeaderText = "year";
-            this.yearDataGridViewTextBoxColumn.Name = "yearDataGridViewTextBoxColumn";
+            this.makeDataGridViewTextBoxColumn.DataPropertyName = "make";
+            this.makeDataGridViewTextBoxColumn.HeaderText = "make";
+            this.makeDataGridViewTextBoxColumn.Name = "makeDataGridViewTextBoxColumn";
             // 
             // modelDataGridViewTextBoxColumn
             // 
@@ -99,24 +91,46 @@
             this.modelDataGridViewTextBoxColumn.HeaderText = "model";
             this.modelDataGridViewTextBoxColumn.Name = "modelDataGridViewTextBoxColumn";
             // 
-            // makeDataGridViewTextBoxColumn
+            // yearDataGridViewTextBoxColumn
             // 
-            this.makeDataGridViewTextBoxColumn.DataPropertyName = "make";
-            this.makeDataGridViewTextBoxColumn.HeaderText = "make";
-            this.makeDataGridViewTextBoxColumn.Name = "makeDataGridViewTextBoxColumn";
+            this.yearDataGridViewTextBoxColumn.DataPropertyName = "year";
+            this.yearDataGridViewTextBoxColumn.HeaderText = "year";
+            this.yearDataGridViewTextBoxColumn.Name = "yearDataGridViewTextBoxColumn";
+            // 
+            // priceDataGridViewTextBoxColumn
+            // 
+            this.priceDataGridViewTextBoxColumn.DataPropertyName = "price";
+            this.priceDataGridViewTextBoxColumn.HeaderText = "price";
+            this.priceDataGridViewTextBoxColumn.Name = "priceDataGridViewTextBoxColumn";
+            // 
+            // carBindingSource
+            // 
+            this.carBindingSource.DataSource = typeof(CarRentalProgram.Car);
+            // 
+            // profileButton
+            // 
+            this.profileButton.Location = new System.Drawing.Point(194, 323);
+            this.profileButton.Name = "profileButton";
+            this.profileButton.Size = new System.Drawing.Size(75, 23);
+            this.profileButton.TabIndex = 5;
+            this.profileButton.Text = "Profile";
+            this.profileButton.UseVisualStyleBackColor = true;
+            this.profileButton.Click += new System.EventHandler(this.profileButton_Click);
             // 
             // CarRentalMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(471, 351);
+            this.Controls.Add(this.profileButton);
             this.Controls.Add(this.carGridView);
             this.Controls.Add(this.addButton);
             this.Controls.Add(this.exitButton);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "CarRentalMain";
             this.Text = "Car Rental";
-            ((System.ComponentModel.ISupportInitialize)(this.carBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.carGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.carBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -131,6 +145,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn modelDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn yearDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn priceDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Button profileButton;
     }
 }
 

@@ -6,14 +6,16 @@ using System.Threading.Tasks;
 
 namespace CarRentalProgram
 {
-    [Serializable]
     public class User
     {
-        [System.Xml.Serialization.XmlElementAttribute("username")]
         public string username { get; set; }
-        [System.Xml.Serialization.XmlElementAttribute("password")]
         public string password { get; set; }
-        [System.Xml.Serialization.XmlElementAttribute("power")]
         public int power { get; set; }
+        public string address1 { get; set; }
+        public string address2 { get; set; }
+        public string email { get; set; }
+        public string phone { get; set; }
+        public string license { get; set; }
+        public string creditcard { get; set; }
     }
 }

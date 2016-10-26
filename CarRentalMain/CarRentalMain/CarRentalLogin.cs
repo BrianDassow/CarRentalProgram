@@ -23,57 +23,18 @@ namespace CarRentalProgram
         public CarRentalLogin()
         {
             InitializeComponent();
-
-
-
-
-
-            FileStream fs = new FileStream("users.xml", FileMode.Open);
-            XmlReader reader = XmlReader.Create(fs);
-            XDocument doc = XDocument.Load(reader);
-            
-            
-        
-
-        var allUsersFromXML = (from s in doc.Descendants("user") select new {
-                               username = s.Element("username").Value,
-                               password = s.Element("password").Value,
-                               power = int.Parse(s.Element("power").Value)
-                           }).ToList();
-
-            
-
-            for(int i = 0; i < allUsersFromXML.Count; i++)
-            {
-                User user = new User();
-                user.username = allUsersFromXML[i].username;
-                user.password = allUsersFromXML[i].password;
-                user.power = allUsersFromXML[i].power;
-                allUsers.Add(user);
-            }
-
-            reader.Close();
-            fs.Close();
-            
-            for(int i = 0; i < allUsers.Count; i++)
-            {
-                Console.WriteLine("Username: " + allUsers[i].username + " password: " + allUsers[i].password + " power: " + allUsers[i].power);
-            }
-
-
-
-
         }
 
         private void loginButton_Click(object sender, EventArgs e)
         {
-
+            allUsers = Program.getUsersFromXMLFile();
 
             for (int i = 0; i < allUsers.Count; i++)
             {
-                if (usernameTextBox.Text.Equals(allUsers[i].username) && passwordTextBox.Text.Equals(allUsers[i].password))
+                if (usernameTextBox.Text.ToLower().Equals(allUsers[i].username) && passwordTextBox.Text.Equals(allUsers[i].password))
                 {
                     this.Hide();
+                    allUsers = Program.getUsersFromXMLFile();
                     CarRentalMain frm = new CarRentalMain(allUsers[i]);
                     frm.ShowDialog();
                     this.Close();
@@ -82,17 +43,17 @@ namespace CarRentalProgram
                 {
                     MessageBox.Show("Wrong username and/or password.");
                 }
-
-
             }
         }
             
 
         private void registerButton_Click(object sender, EventArgs e)
         {
-         //   this.Hide();
-            //CarRentalMain frm = new CarRentalMain(1);
-           // frm.ShowDialog();
+            this.Hide();
+            allUsers = Program.getUsersFromXMLFile();
+            CarRentalRegister frm = new CarRentalRegister();
+            frm.ShowDialog();
+            this.Show();
 
         }
 
@@ -104,5 +65,6 @@ namespace CarRentalProgram
 
            // this.Close();
         }
+
     }
 }

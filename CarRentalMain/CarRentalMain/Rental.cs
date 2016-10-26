@@ -6,12 +6,9 @@ using System.Threading.Tasks;
 
 namespace CarRentalProgram
 {
-    public class Car
+    class Rental
     {
         public int carid { get; set; }
-        public string make { get; set; }
-        public string model { get; set; }
-        public int year { get; set; }
-        public string price { get; set; }
+        public string customername { get; set; }
     }
 }

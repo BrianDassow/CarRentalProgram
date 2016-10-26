@@ -48,6 +48,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Car.cs" />
+    <Compile Include="CarRentalConfirm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CarRentalConfirm.Designer.cs">
+      <DependentUpon>CarRentalConfirm.cs</DependentUpon>
+    </Compile>
     <Compile Include="CarRentalLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -60,14 +66,36 @@
     <Compile Include="CarRentalMain.Designer.cs">
       <DependentUpon>CarRentalMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="CarRentalProfile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CarRentalProfile.Designer.cs">
+      <DependentUpon>CarRentalProfile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CarRentalRegister.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CarRentalRegister.Designer.cs">
+      <DependentUpon>CarRentalRegister.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rental.cs" />
     <Compile Include="User.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="CarRentalConfirm.resx">
+      <DependentUpon>CarRentalConfirm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CarRentalLogin.resx">
       <DependentUpon>CarRentalLogin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CarRentalMain.resx">
       <DependentUpon>CarRentalMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CarRentalProfile.resx">
+      <DependentUpon>CarRentalProfile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CarRentalRegister.resx">
+      <DependentUpon>CarRentalRegister.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
