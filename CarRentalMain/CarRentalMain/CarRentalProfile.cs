@@ -31,11 +31,33 @@ namespace CarRentalProgram
             carRentalBindingSource.DataSource = carsAssociatedWithRentals;
             userRentalComboBox.DataSource = carRentalBindingSource.DataSource;
             userRentalComboBox.DisplayMember = "make";
-            
+
+            if (currentUser.address1 == "null")
+            {
+                address1TextBox.Text = "";
+            }
+            if (currentUser.address2 == "null")
+            {
+                address2TextBox.Text = "";
+            }
+            if (currentUser.email == "null")
+            {
+                emailTextBox.Text = "";
+            }
+            if (currentUser.phone == "null")
+            {
+                phoneTextBox.Text = "";
+            }
+            if (currentUser.license == "null")
+            {
+                driversLicenseTextBox.Text = "";
+            }
+            if (currentUser.creditcard == "null")
+            {
+                creditCardTextBox.Text = "";
+            }
         }
             
-            
-
         private void saveButton_Click(object sender, EventArgs e)
         {
 
