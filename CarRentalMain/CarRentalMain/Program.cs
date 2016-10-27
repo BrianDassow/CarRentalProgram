@@ -52,6 +52,57 @@ namespace CarRentalProgram
             return allRentals;
         }
 
+        public static List<Rental> getUserSpecificRentalsFromXMLFile(User user)
+        {
+            FileStream fs = new FileStream("rentals.xml", FileMode.Open);
+            XmlReader reader = XmlReader.Create(fs);
+            XDocument doc = XDocument.Load(reader);
+
+
+
+
+            var userSpecificRentalsFromXML = (from s in doc.Descendants("rental")
+                                     select new
+                                     {
+                                         carid = int.Parse(s.Element("carid").Value),
+                                         customername = s.Element("customername").Value
+                                     }).ToList();
+
+            List<Rental> userSpecificRentals = new List<Rental>();
+
+            for (int i = 0; i < userSpecificRentalsFromXML.Count; i++)
+            {
+                Rental rental = new Rental();
+                rental.carid = userSpecificRentalsFromXML[i].carid;
+                rental.customername = userSpecificRentalsFromXML[i].customername;
+                if(rental.customername == user.username)
+                {
+                    userSpecificRentals.Add(rental);
+                }
+            }
+
+            reader.Close();
+            fs.Close();
+            return userSpecificRentals;
+        }
+
+        public static List<Car> matchRentalsToCars(List<Rental> rentalsToMatch)
+        {
+            List<Car> allCars = getCarsFromXMLFile();
+            List<Car> matchedRentalsToCarsList = new List<Car>();
+            foreach(Rental e in rentalsToMatch)
+            {
+                foreach(Car x in allCars)
+                {
+                    if (e.carid == x.carid)
+                    {
+                        matchedRentalsToCarsList.Add(x);
+                    }
+                }
+            }
+            return matchedRentalsToCarsList;
+        }
+
         public static List<User> getUsersFromXMLFile()
         {
 
