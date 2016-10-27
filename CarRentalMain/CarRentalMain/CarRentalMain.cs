@@ -18,6 +18,7 @@ namespace CarRentalProgram
         List<Car> allCars = new List<Car>();
         List<User> allUsers = new List<User>();
         User currentUser = new User();
+        bool initialized = false;
 
         string[] userPowerString = {"Guest","Member", "Administrator"};
         public CarRentalMain(User user)
@@ -40,7 +41,22 @@ namespace CarRentalProgram
             }
 
             carGridView.RowTemplate.Height = 50;
-            //carGridView.;
+
+            makeComboBox.Items.Add("-Make-");
+            makeComboBox.Items.Add("Honda");
+            makeComboBox.Items.Add("Ford");
+            makeComboBox.Items.Add("Mazda");
+            makeComboBox.Items.Add("Chevy");
+            makeComboBox.Items.Add("Kia");
+            makeComboBox.Items.Add("Toyota");
+
+            priceComboBox.Items.Add("-Price-");
+            priceComboBox.Items.Add(">=60");
+            priceComboBox.Items.Add("<60");
+
+            makeComboBox.SelectedItem = "-Make-";
+            priceComboBox.SelectedItem = "-Price-";
+            initialized = true;
         }
 
 
@@ -59,6 +75,134 @@ namespace CarRentalProgram
         {
             CarRentalConfirm frm = new CarRentalConfirm((Car)carBindingSource[carGridView.CurrentCell.RowIndex], currentUser);
             frm.ShowDialog();
+        }
+
+        private void priceComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            SortCombos();
+
+
+            
+        }
+
+        private void makeComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            SortCombos();
+
+        }
+
+        private void SortCombos()
+        {
+            if (!initialized)
+            {
+                return;
+            }
+            allCars = Program.getCarsFromXMLFile();
+            carBindingSource.Clear();
+
+            if (makeComboBox.SelectedItem.Equals("Honda"))
+            {
+                foreach (var car in allCars)
+                {
+                    if (car.make.Equals("Honda"))
+                    {
+                        carBindingSource.Add(car);
+                    }
+                }
+            }
+            else if (makeComboBox.SelectedItem.Equals("Ford"))
+            {
+                foreach (var car in allCars)
+                {
+                    if (car.make.Equals("Ford"))
+                    {
+                        carBindingSource.Add(car);
+                    }
+                }
+            }
+            else if (makeComboBox.SelectedItem.Equals("Mazda"))
+            {
+                foreach (var car in allCars)
+                {
+                    if (car.make.Equals("Mazda"))
+                    {
+                        carBindingSource.Add(car);
+                    }
+                }
+            }
+            else if (makeComboBox.SelectedItem.Equals("Chevy"))
+            {
+                foreach (var car in allCars)
+                {
+                    if (car.make.Equals("Chevy"))
+                    {
+                        carBindingSource.Add(car);
+                    }
+                }
+            }
+            else if (makeComboBox.SelectedItem.Equals("Kia"))
+            {
+                foreach (var car in allCars)
+                {
+                    if (car.make.Equals("Kia"))
+                    {
+                        carBindingSource.Add(car);
+                    }
+                }
+            }
+            else if (makeComboBox.SelectedItem.Equals("Toyota"))
+            {
+                foreach (var car in allCars)
+                {
+                    if (car.make.Equals("Toyota"))
+                    {
+                        carBindingSource.Add(car);
+                    }
+                }
+            }
+            else
+            {
+                foreach (var car in allCars)
+                {
+                    carBindingSource.Add(car);
+                }
+            }
+            
+            allCars.Clear();
+            foreach (Car car in carBindingSource.List)
+            {
+                allCars.Add(car);
+            }
+            carBindingSource.Clear();
+
+            if (priceComboBox.SelectedItem.Equals("<60"))
+            {
+                foreach (var car in allCars)
+                {
+                    if (car.price < 60)
+                    {
+                        carBindingSource.Add(car);
+                    }
+                }
+            }
+            else if (priceComboBox.SelectedItem.Equals(">=60"))
+            {
+                foreach (var car in allCars)
+                {
+                    if (car.price >= 60)
+                    {
+                        carBindingSource.Add(car);
+                    }
+                }
+            }
+            else
+            {
+                foreach (var car in allCars)
+                {
+                    carBindingSource.Add(car);
+                }
+            }
+            //carBindingSource.List;
         }
     }
 }
