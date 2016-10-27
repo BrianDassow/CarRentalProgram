@@ -24,9 +24,11 @@ namespace CarRentalProgram
             this.currentUser = currentUser;
             this.currentCar = currentCar;
 
-            rentalConfirmationTextBox.Text = "Confirmation Page for: " + currentUser.username + "\nLicense Num: " + currentUser.license 
-                + "\n\nCar Information:\n\nMake: " + currentCar.make + "\nModel: " + currentCar.model + "\nYear: " + currentCar.year 
-                + "\nSize: " + currentCar.size + "\nPrice: $" + currentCar.price + "/day";
+            rentalConfirmationTextBox.Text = "Confirmation Page for: " + char.ToUpper(currentUser.username[0]) + currentUser.username.Substring(1)
+            + "\n\n-Car Information-\nMake: " + currentCar.make + "\nModel: " + currentCar.model + "\nYear: " + currentCar.year 
+                + "\nSize: " + currentCar.size + "\nPrice: $" + currentCar.price + "/day" + "\n\n-Billing Information-\nAddress line 1: " + currentUser.address1
+                + "\nAddress line 2: " + currentUser.address2 + "\nEmail: " + currentUser.email + "\nPhone Number: " + currentUser.phone
+                + "\nLicense Number: " + currentUser.license + "\nCredit Card Number: " + currentUser.creditcard;
         }
 
         private void confirmButton_Click(object sender, EventArgs e)

@@ -105,15 +105,9 @@ namespace CarRentalProgram
 
         public static List<User> getUsersFromXMLFile()
         {
-
-
-
             FileStream fs = new FileStream("users.xml", FileMode.Open);
             XmlReader reader = XmlReader.Create(fs);
             XDocument doc = XDocument.Load(reader);
-
-
-
 
             var allUsersFromXML = (from s in doc.Descendants("user")
                                    select new

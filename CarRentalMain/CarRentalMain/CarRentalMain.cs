@@ -71,13 +71,32 @@ namespace CarRentalProgram
 
         private void profileButton_Click(object sender, EventArgs e)
         {
-            CarRentalProfile frm = new CarRentalProfile(currentUser);
-            frm.ShowDialog();
+            allUsers = Program.getUsersFromXMLFile();
+            foreach (User user in allUsers)
+            {
+                if (user.username == currentUser.username)
+                {
+                    currentUser = user;
+                    CarRentalProfile frm = new CarRentalProfile(currentUser);
+                    frm.ShowDialog();
+                }
+            }
+
         }
 
         private void addButton_Click(object sender, EventArgs e)
         {
-            if(currentUser.license == "null" || currentUser.email == "null" || currentUser.creditcard == "null" || currentUser.address1 == "null"
+            allUsers = Program.getUsersFromXMLFile();
+            foreach (User user in allUsers)
+            {
+                if (user.username == currentUser.username)
+                {
+                    currentUser = user;
+                }
+            }
+
+
+            if (currentUser.license == "null" || currentUser.email == "null" || currentUser.creditcard == "null" || currentUser.address1 == "null"
                 || currentUser.address2 == "null" || currentUser.phone == "null")
             {
                 MessageBox.Show("Please ensure all fields are complete before renting a vehicle.");
@@ -93,15 +112,11 @@ namespace CarRentalProgram
         private void priceComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             SortCombos();
-
-
-            
         }
 
         private void makeComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             SortCombos();
-
         }
 
         private void SortCombos()

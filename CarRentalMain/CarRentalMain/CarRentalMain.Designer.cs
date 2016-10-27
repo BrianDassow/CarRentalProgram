@@ -32,10 +32,10 @@
             this.addButton = new System.Windows.Forms.Button();
             this.exitButton = new System.Windows.Forms.Button();
             this.carGridView = new System.Windows.Forms.DataGridView();
-            this.size = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.profileButton = new System.Windows.Forms.Button();
             this.makeComboBox = new System.Windows.Forms.ComboBox();
             this.priceComboBox = new System.Windows.Forms.ComboBox();
+            this.size = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.makeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.modelDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.yearDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -47,7 +47,7 @@
             // 
             // addButton
             // 
-            this.addButton.Location = new System.Drawing.Point(12, 323);
+            this.addButton.Location = new System.Drawing.Point(481, 323);
             this.addButton.Name = "addButton";
             this.addButton.Size = new System.Drawing.Size(75, 23);
             this.addButton.TabIndex = 0;
@@ -58,7 +58,7 @@
             // exitButton
             // 
             this.exitButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.exitButton.Location = new System.Drawing.Point(511, 323);
+            this.exitButton.Location = new System.Drawing.Point(562, 323);
             this.exitButton.Name = "exitButton";
             this.exitButton.Size = new System.Drawing.Size(75, 23);
             this.exitButton.TabIndex = 1;
@@ -81,25 +81,18 @@
             this.size,
             this.priceDataGridViewTextBoxColumn});
             this.carGridView.DataSource = this.carBindingSource;
-            this.carGridView.Location = new System.Drawing.Point(12, 56);
+            this.carGridView.Location = new System.Drawing.Point(12, 39);
             this.carGridView.MultiSelect = false;
             this.carGridView.Name = "carGridView";
             this.carGridView.ReadOnly = true;
             this.carGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.carGridView.ShowEditingIcon = false;
-            this.carGridView.Size = new System.Drawing.Size(574, 261);
+            this.carGridView.Size = new System.Drawing.Size(625, 278);
             this.carGridView.TabIndex = 4;
-            // 
-            // size
-            // 
-            this.size.DataPropertyName = "size";
-            this.size.HeaderText = "size";
-            this.size.Name = "size";
-            this.size.ReadOnly = true;
             // 
             // profileButton
             // 
-            this.profileButton.Location = new System.Drawing.Point(270, 323);
+            this.profileButton.Location = new System.Drawing.Point(12, 323);
             this.profileButton.Name = "profileButton";
             this.profileButton.Size = new System.Drawing.Size(75, 23);
             this.profileButton.TabIndex = 5;
@@ -121,16 +114,23 @@
             // 
             this.priceComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.priceComboBox.FormattingEnabled = true;
-            this.priceComboBox.Location = new System.Drawing.Point(400, 12);
+            this.priceComboBox.Location = new System.Drawing.Point(450, 12);
             this.priceComboBox.Name = "priceComboBox";
             this.priceComboBox.Size = new System.Drawing.Size(186, 21);
             this.priceComboBox.TabIndex = 8;
             this.priceComboBox.SelectedIndexChanged += new System.EventHandler(this.priceComboBox_SelectedIndexChanged);
             // 
+            // size
+            // 
+            this.size.DataPropertyName = "size";
+            this.size.HeaderText = "Size";
+            this.size.Name = "size";
+            this.size.ReadOnly = true;
+            // 
             // makeDataGridViewTextBoxColumn
             // 
             this.makeDataGridViewTextBoxColumn.DataPropertyName = "make";
-            this.makeDataGridViewTextBoxColumn.HeaderText = "make";
+            this.makeDataGridViewTextBoxColumn.HeaderText = "Make";
             this.makeDataGridViewTextBoxColumn.Name = "makeDataGridViewTextBoxColumn";
             this.makeDataGridViewTextBoxColumn.ReadOnly = true;
             this.makeDataGridViewTextBoxColumn.Width = 110;
@@ -138,7 +138,7 @@
             // modelDataGridViewTextBoxColumn
             // 
             this.modelDataGridViewTextBoxColumn.DataPropertyName = "model";
-            this.modelDataGridViewTextBoxColumn.HeaderText = "model";
+            this.modelDataGridViewTextBoxColumn.HeaderText = "Model";
             this.modelDataGridViewTextBoxColumn.Name = "modelDataGridViewTextBoxColumn";
             this.modelDataGridViewTextBoxColumn.ReadOnly = true;
             this.modelDataGridViewTextBoxColumn.Width = 150;
@@ -146,17 +146,17 @@
             // yearDataGridViewTextBoxColumn
             // 
             this.yearDataGridViewTextBoxColumn.DataPropertyName = "year";
-            this.yearDataGridViewTextBoxColumn.HeaderText = "year";
+            this.yearDataGridViewTextBoxColumn.HeaderText = "Year";
             this.yearDataGridViewTextBoxColumn.Name = "yearDataGridViewTextBoxColumn";
             this.yearDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // priceDataGridViewTextBoxColumn
             // 
             this.priceDataGridViewTextBoxColumn.DataPropertyName = "price";
-            this.priceDataGridViewTextBoxColumn.HeaderText = "price";
+            this.priceDataGridViewTextBoxColumn.HeaderText = "Price (per day)";
             this.priceDataGridViewTextBoxColumn.Name = "priceDataGridViewTextBoxColumn";
             this.priceDataGridViewTextBoxColumn.ReadOnly = true;
-            this.priceDataGridViewTextBoxColumn.Width = 50;
+            this.priceDataGridViewTextBoxColumn.Width = 105;
             // 
             // carBindingSource
             // 
@@ -166,7 +166,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(598, 351);
+            this.ClientSize = new System.Drawing.Size(648, 350);
             this.Controls.Add(this.priceComboBox);
             this.Controls.Add(this.makeComboBox);
             this.Controls.Add(this.profileButton);
@@ -189,13 +189,13 @@
         private System.Windows.Forms.BindingSource carBindingSource;
         private System.Windows.Forms.DataGridView carGridView;
         private System.Windows.Forms.Button profileButton;
+        private System.Windows.Forms.ComboBox makeComboBox;
+        private System.Windows.Forms.ComboBox priceComboBox;
         private System.Windows.Forms.DataGridViewTextBoxColumn makeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn modelDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn yearDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn size;
         private System.Windows.Forms.DataGridViewTextBoxColumn priceDataGridViewTextBoxColumn;
-        private System.Windows.Forms.ComboBox makeComboBox;
-        private System.Windows.Forms.ComboBox priceComboBox;
     }
 }
 
