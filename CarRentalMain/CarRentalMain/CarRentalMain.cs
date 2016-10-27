@@ -49,6 +49,10 @@ namespace CarRentalProgram
             makeComboBox.Items.Add("Chevy");
             makeComboBox.Items.Add("Kia");
             makeComboBox.Items.Add("Toyota");
+            makeComboBox.Items.Add("Lamborghini");
+            makeComboBox.Items.Add("Abrams");
+            makeComboBox.Items.Add("Delorean");
+            makeComboBox.Items.Add("Magic");
 
             priceComboBox.Items.Add("-Price-");
             priceComboBox.Items.Add(">=60");
@@ -164,6 +168,46 @@ namespace CarRentalProgram
                 foreach (var car in allCars)
                 {
                     if (car.make.Equals("Toyota"))
+                    {
+                        carBindingSource.Add(car);
+                    }
+                }
+            }
+            else if (makeComboBox.SelectedItem.Equals("Lamborghini"))
+            {
+                foreach (var car in allCars)
+                {
+                    if (car.make.Equals("Lamborghini"))
+                    {
+                        carBindingSource.Add(car);
+                    }
+                }
+            }
+            else if (makeComboBox.SelectedItem.Equals("Abrams"))
+            {
+                foreach (var car in allCars)
+                {
+                    if (car.make.Equals("Abrams"))
+                    {
+                        carBindingSource.Add(car);
+                    }
+                }
+            }
+            else if (makeComboBox.SelectedItem.Equals("Delorean"))
+            {
+                foreach (var car in allCars)
+                {
+                    if (car.make.Equals("Delorean"))
+                    {
+                        carBindingSource.Add(car);
+                    }
+                }
+            }
+            else if (makeComboBox.SelectedItem.Equals("Magic"))
+            {
+                foreach (var car in allCars)
+                {
+                    if (car.make.Equals("Magic"))
                     {
                         carBindingSource.Add(car);
                     }
