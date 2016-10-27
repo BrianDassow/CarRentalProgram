@@ -24,7 +24,9 @@ namespace CarRentalProgram
             this.currentUser = currentUser;
             this.currentCar = currentCar;
 
-            rentalConfirmationTextBox.Text = "Confirmation Page for: " + currentUser.username + "\n\nCar Information:\nMake: " + currentCar.make + "\nModel: " + currentCar.model + "\nYear: " + currentCar.year + "\nPrice: " + currentCar.price;
+            rentalConfirmationTextBox.Text = "Confirmation Page for: " + currentUser.username + "\nLicense Num: " + currentUser.license 
+                + "\n\nCar Information:\n\nMake: " + currentCar.make + "\nModel: " + currentCar.model + "\nYear: " + currentCar.year 
+                + "\nSize: " + currentCar.size + "\nPrice: $" + currentCar.price + "/day";
         }
 
         private void confirmButton_Click(object sender, EventArgs e)
@@ -56,8 +58,13 @@ namespace CarRentalProgram
                 writer.WriteEndDocument();
                 writer.Close();
             }
+            MessageBox.Show("You successfully rented: " + currentCar.year + " " + currentCar.make + " " + currentCar.model + " for $" + currentCar.price + "/day!");
             this.Close();
         }
 
+        private void closeButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
