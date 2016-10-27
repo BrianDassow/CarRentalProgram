@@ -73,6 +73,15 @@ namespace CarRentalProgram
 
         private void addButton_Click(object sender, EventArgs e)
         {
+            if(currentUser.license == "null" || currentUser.email == "null" || currentUser.creditcard == "null" || currentUser.address1 == "null"
+                || currentUser.address2 == "null" || currentUser.phone == "null")
+            {
+                MessageBox.Show("Please ensure all fields are complete before renting a vehicle.");
+                CarRentalProfile form = new CarRentalProfile(currentUser);
+                form.ShowDialog();
+                return;
+            }
+
             CarRentalConfirm frm = new CarRentalConfirm((Car)carBindingSource[carGridView.CurrentCell.RowIndex], currentUser);
             frm.ShowDialog();
         }
