@@ -45,18 +45,19 @@
             // 
             // closeButton
             // 
-            this.closeButton.Location = new System.Drawing.Point(344, 352);
+            this.closeButton.Location = new System.Drawing.Point(214, 352);
             this.closeButton.Name = "closeButton";
             this.closeButton.Size = new System.Drawing.Size(65, 23);
             this.closeButton.TabIndex = 1;
             this.closeButton.Text = "Close";
             this.closeButton.UseVisualStyleBackColor = true;
+            this.closeButton.Click += new System.EventHandler(this.closeButton_Click);
             // 
             // rentalConfirmationTextBox
             // 
             this.rentalConfirmationTextBox.Location = new System.Drawing.Point(12, 12);
             this.rentalConfirmationTextBox.Name = "rentalConfirmationTextBox";
-            this.rentalConfirmationTextBox.Size = new System.Drawing.Size(397, 334);
+            this.rentalConfirmationTextBox.Size = new System.Drawing.Size(267, 334);
             this.rentalConfirmationTextBox.TabIndex = 2;
             this.rentalConfirmationTextBox.Text = "";
             // 
@@ -64,7 +65,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(421, 387);
+            this.ClientSize = new System.Drawing.Size(293, 387);
             this.Controls.Add(this.rentalConfirmationTextBox);
             this.Controls.Add(this.closeButton);
             this.Controls.Add(this.confirmButton);

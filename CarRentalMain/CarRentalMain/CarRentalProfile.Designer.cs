@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.usernameLabel = new System.Windows.Forms.Label();
             this.addressLabel1 = new System.Windows.Forms.Label();
             this.addressLine2 = new System.Windows.Forms.Label();
@@ -45,6 +46,12 @@
             this.creditCardTextBox = new System.Windows.Forms.TextBox();
             this.textBox8 = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.rentalCarPrice = new System.Windows.Forms.Label();
+            this.rentalCarYear = new System.Windows.Forms.Label();
+            this.rentalCarSize = new System.Windows.Forms.Label();
+            this.rentalCarModelLabel = new System.Windows.Forms.Label();
+            this.rentalCarMakeLabel = new System.Windows.Forms.Label();
+            this.userRentalComboBox = new System.Windows.Forms.ComboBox();
             this.rentalInfoGroupBox = new System.Windows.Forms.GroupBox();
             this.securityGroupBox = new System.Windows.Forms.GroupBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
@@ -54,10 +61,12 @@
             this.generalGroupBox = new System.Windows.Forms.GroupBox();
             this.saveButton = new System.Windows.Forms.Button();
             this.closeButton = new System.Windows.Forms.Button();
+            this.carRentalBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panel1.SuspendLayout();
             this.rentalInfoGroupBox.SuspendLayout();
             this.securityGroupBox.SuspendLayout();
             this.generalGroupBox.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.carRentalBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // usernameLabel
@@ -191,13 +200,74 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.rentalCarPrice);
+            this.panel1.Controls.Add(this.rentalCarYear);
+            this.panel1.Controls.Add(this.rentalCarSize);
+            this.panel1.Controls.Add(this.rentalCarModelLabel);
+            this.panel1.Controls.Add(this.rentalCarMakeLabel);
+            this.panel1.Controls.Add(this.userRentalComboBox);
             this.panel1.Controls.Add(this.rentalInfoGroupBox);
             this.panel1.Controls.Add(this.securityGroupBox);
             this.panel1.Controls.Add(this.generalGroupBox);
             this.panel1.Location = new System.Drawing.Point(12, 12);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(246, 337);
+            this.panel1.Size = new System.Drawing.Size(407, 337);
             this.panel1.TabIndex = 16;
+            // 
+            // rentalCarPrice
+            // 
+            this.rentalCarPrice.AutoSize = true;
+            this.rentalCarPrice.Location = new System.Drawing.Point(248, 120);
+            this.rentalCarPrice.Name = "rentalCarPrice";
+            this.rentalCarPrice.Size = new System.Drawing.Size(116, 13);
+            this.rentalCarPrice.TabIndex = 8;
+            this.rentalCarPrice.Text = "RENTAL_CAR_PRICE";
+            // 
+            // rentalCarYear
+            // 
+            this.rentalCarYear.AutoSize = true;
+            this.rentalCarYear.Location = new System.Drawing.Point(248, 94);
+            this.rentalCarYear.Name = "rentalCarYear";
+            this.rentalCarYear.Size = new System.Drawing.Size(113, 13);
+            this.rentalCarYear.TabIndex = 7;
+            this.rentalCarYear.Text = "RENTAL_CAR_YEAR";
+            // 
+            // rentalCarSize
+            // 
+            this.rentalCarSize.AutoSize = true;
+            this.rentalCarSize.Location = new System.Drawing.Point(248, 143);
+            this.rentalCarSize.Name = "rentalCarSize";
+            this.rentalCarSize.Size = new System.Drawing.Size(108, 13);
+            this.rentalCarSize.TabIndex = 6;
+            this.rentalCarSize.Text = "RENTAL_CAR_SIZE";
+            // 
+            // rentalCarModelLabel
+            // 
+            this.rentalCarModelLabel.AutoSize = true;
+            this.rentalCarModelLabel.Location = new System.Drawing.Point(248, 68);
+            this.rentalCarModelLabel.Name = "rentalCarModelLabel";
+            this.rentalCarModelLabel.Size = new System.Drawing.Size(122, 13);
+            this.rentalCarModelLabel.TabIndex = 5;
+            this.rentalCarModelLabel.Text = "RENTAL_CAR_MODEL";
+            // 
+            // rentalCarMakeLabel
+            // 
+            this.rentalCarMakeLabel.AutoSize = true;
+            this.rentalCarMakeLabel.Location = new System.Drawing.Point(248, 42);
+            this.rentalCarMakeLabel.Name = "rentalCarMakeLabel";
+            this.rentalCarMakeLabel.Size = new System.Drawing.Size(114, 13);
+            this.rentalCarMakeLabel.TabIndex = 4;
+            this.rentalCarMakeLabel.Text = "RENTAL_CAR_MAKE";
+            // 
+            // userRentalComboBox
+            // 
+            this.userRentalComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.userRentalComboBox.FormattingEnabled = true;
+            this.userRentalComboBox.Location = new System.Drawing.Point(248, 11);
+            this.userRentalComboBox.Name = "userRentalComboBox";
+            this.userRentalComboBox.Size = new System.Drawing.Size(142, 21);
+            this.userRentalComboBox.TabIndex = 3;
+            this.userRentalComboBox.SelectedIndexChanged += new System.EventHandler(this.userRentalComboBox_SelectedIndexChanged);
             // 
             // rentalInfoGroupBox
             // 
@@ -302,7 +372,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(274, 384);
+            this.ClientSize = new System.Drawing.Size(431, 384);
             this.Controls.Add(this.closeButton);
             this.Controls.Add(this.saveButton);
             this.Controls.Add(this.panel1);
@@ -310,12 +380,14 @@
             this.Name = "CarRentalProfile";
             this.Text = "Profile";
             this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.rentalInfoGroupBox.ResumeLayout(false);
             this.rentalInfoGroupBox.PerformLayout();
             this.securityGroupBox.ResumeLayout(false);
             this.securityGroupBox.PerformLayout();
             this.generalGroupBox.ResumeLayout(false);
             this.generalGroupBox.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.carRentalBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -348,5 +420,12 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button saveButton;
         private System.Windows.Forms.Button closeButton;
+        private System.Windows.Forms.ComboBox userRentalComboBox;
+        private System.Windows.Forms.Label rentalCarModelLabel;
+        private System.Windows.Forms.Label rentalCarMakeLabel;
+        private System.Windows.Forms.BindingSource carRentalBindingSource;
+        private System.Windows.Forms.Label rentalCarSize;
+        private System.Windows.Forms.Label rentalCarYear;
+        private System.Windows.Forms.Label rentalCarPrice;
     }
 }
