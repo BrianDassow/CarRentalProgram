@@ -219,45 +219,41 @@
             this.rentalCarPrice.AutoSize = true;
             this.rentalCarPrice.Location = new System.Drawing.Point(248, 120);
             this.rentalCarPrice.Name = "rentalCarPrice";
-            this.rentalCarPrice.Size = new System.Drawing.Size(116, 13);
+            this.rentalCarPrice.Size = new System.Drawing.Size(0, 13);
             this.rentalCarPrice.TabIndex = 8;
-            this.rentalCarPrice.Text = "RENTAL_CAR_PRICE";
             // 
             // rentalCarYear
             // 
             this.rentalCarYear.AutoSize = true;
             this.rentalCarYear.Location = new System.Drawing.Point(248, 94);
             this.rentalCarYear.Name = "rentalCarYear";
-            this.rentalCarYear.Size = new System.Drawing.Size(113, 13);
+            this.rentalCarYear.Size = new System.Drawing.Size(0, 13);
             this.rentalCarYear.TabIndex = 7;
-            this.rentalCarYear.Text = "RENTAL_CAR_YEAR";
             // 
             // rentalCarSize
             // 
             this.rentalCarSize.AutoSize = true;
             this.rentalCarSize.Location = new System.Drawing.Point(248, 143);
             this.rentalCarSize.Name = "rentalCarSize";
-            this.rentalCarSize.Size = new System.Drawing.Size(108, 13);
+            this.rentalCarSize.Size = new System.Drawing.Size(0, 13);
             this.rentalCarSize.TabIndex = 6;
-            this.rentalCarSize.Text = "RENTAL_CAR_SIZE";
             // 
             // rentalCarModelLabel
             // 
             this.rentalCarModelLabel.AutoSize = true;
             this.rentalCarModelLabel.Location = new System.Drawing.Point(248, 68);
             this.rentalCarModelLabel.Name = "rentalCarModelLabel";
-            this.rentalCarModelLabel.Size = new System.Drawing.Size(122, 13);
+            this.rentalCarModelLabel.Size = new System.Drawing.Size(0, 13);
             this.rentalCarModelLabel.TabIndex = 5;
-            this.rentalCarModelLabel.Text = "RENTAL_CAR_MODEL";
             // 
             // rentalCarMakeLabel
             // 
             this.rentalCarMakeLabel.AutoSize = true;
             this.rentalCarMakeLabel.Location = new System.Drawing.Point(248, 42);
             this.rentalCarMakeLabel.Name = "rentalCarMakeLabel";
-            this.rentalCarMakeLabel.Size = new System.Drawing.Size(114, 13);
+            this.rentalCarMakeLabel.Size = new System.Drawing.Size(151, 13);
             this.rentalCarMakeLabel.TabIndex = 4;
-            this.rentalCarMakeLabel.Text = "RENTAL_CAR_MAKE";
+            this.rentalCarMakeLabel.Text = "You have not yet rented a car.";
             // 
             // userRentalComboBox
             // 

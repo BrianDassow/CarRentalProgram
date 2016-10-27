@@ -149,11 +149,6 @@ namespace CarRentalProgram
             reader.Close();
             fs.Close();
 
-            for (int i = 0; i < allUsers.Count; i++)
-            {
-                Console.WriteLine("Username: " + allUsers[i].username + " password: " + allUsers[i].password + " power: " + allUsers[i].power);
-            }
-
             return allUsers;
         }
         public static List<Car> getCarsFromXMLFile()
