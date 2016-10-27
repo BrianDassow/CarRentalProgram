@@ -13,6 +13,8 @@ namespace CarRentalProgram
     public partial class CarRentalProfile : Form
     {
         User currentUser = new User();
+        List<Rental> allRentals;
+        List<Car> carsAssociatedWithRentals;
         public CarRentalProfile(User user)
         {
             InitializeComponent();
@@ -24,7 +26,15 @@ namespace CarRentalProgram
             phoneTextBox.Text = currentUser.phone;
             driversLicenseTextBox.Text = currentUser.license;
             creditCardTextBox.Text = currentUser.creditcard;
+            List<Rental> userSpecificRentals = Program.getUserSpecificRentalsFromXMLFile(currentUser);
+            carsAssociatedWithRentals = Program.matchRentalsToCars(userSpecificRentals);
+            carRentalBindingSource.DataSource = carsAssociatedWithRentals;
+            userRentalComboBox.DataSource = carRentalBindingSource.DataSource;
+            userRentalComboBox.DisplayMember = "make";
+            
         }
+            
+            
 
         private void saveButton_Click(object sender, EventArgs e)
         {
@@ -34,6 +44,20 @@ namespace CarRentalProgram
         private void closeButton_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void userRentalComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Car x = carsAssociatedWithRentals.ElementAt<Car>(userRentalComboBox.SelectedIndex);
+          
+                    //Console.WriteLine("Found a match!" + allCars.ElementAt<Car>(i).model);
+                    //Car foundCar = allCars.ElementAt<Car>(i);
+                    rentalCarMakeLabel.Text = x.make;
+                    rentalCarModelLabel.Text = x.model;
+                    rentalCarPrice.Text = "$" + x.price.ToString() + " per day";
+                    rentalCarSize.Text = x.size;
+                    rentalCarYear.Text = x.year.ToString();
+                    //carName.Refresh();
         }
     }
 }
